@@ -57,7 +57,7 @@ autoenv_printf() {
 }
 
 autoenv_indent() {
- cat -e $@ | sed 's/.*/autoenv:     &/' 
+ cat -e $@ | sed 's/.*/autoenv:     &/'
 }
 
 autoenv_hashline()
@@ -123,6 +123,7 @@ autoenv_source() {
   allexport=$(set +o | \grep allexport)
   set -a
   source "$1"
+  set +a
   eval "$allexport"
 }
 
