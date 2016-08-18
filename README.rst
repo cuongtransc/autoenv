@@ -72,7 +72,7 @@ Disclaimer
 Autoenv overrides ``cd``. If you already do this, invoke ``autoenv_init`` within your custom ``cd`` after sourcing ``activate.sh``.
 
 Autoenv can be disabled via ``unset cd`` if you experience I/O issues with
-certain file systems, particularly those that are FUSE-based (such as 
+certain file systems, particularly those that are FUSE-based (such as
 ``smbnetfs``).
 
 Testing
@@ -90,3 +90,28 @@ Test::
     dtf tests/*
     ............
     ##### Processed commands 14 of 14, success tests 12 of 12.
+
+
+# Python Project Template
+### Install autoenv
+
+```sh
+git clone https://github.com/tranhuucuong91/autoenv.git ~/.autoenv
+echo 'source ~/.autoenv/activate.sh' >> ~/.bashrc
+echo 'source ~/.autoenv/activate.sh' >> ~/.zshrc_myconfig
+```
+
+### Create python project use virtualenv
+
+```sh
+virtualenv venv -p python3
+```
+
+### Create file .env with content:
+
+```sh
+BASEDIR=$(dirname $0)
+
+source ${BASEDIR}/venv/bin/activate
+```
+
